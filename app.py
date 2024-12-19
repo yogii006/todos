@@ -6,10 +6,10 @@ from dotenv import load_dotenv
 import os
 app = Flask(__name__)
 load_dotenv()
-mongodb_uri = "mongodb+srv://yogii006:Yogesh%40nt1@arvind.liuwr.mongodb.net/"
-client = MongoClient(mongodb_uri)
+mongodb = "'mongodb://localhost:27017/?readPreference=primary&directConnection=true&ssl=false"
+client = MongoClient(mongodb)
 db =  client['inotebook']
-collection = db['Todo']
+collection = db['todo']
 
 @app.route('/', methods=['GET', 'POST'])
 def todo():
