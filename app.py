@@ -2,17 +2,15 @@ from flask import Flask, render_template, request, redirect
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 from datetime import datetime
-from dotenv import load_dotenv
-import os
+
 app = Flask(__name__)
-load_dotenv()
-mongodb = "mongodb+srv://yogii006:Yogesh%40nt1@arvind.liuwr.mongodb.net/"
-client = MongoClient(mongodb)
-db =  client['inotebook']
-collection = db['Todo']
+
+client = MongoClient('mongodb://localhost:27017/?readPreference=primary&directConnection=true&ssl=false')
+db = client['inotebook']
+collection = db['todo']
 
 @app.route('/', methods=['GET', 'POST'])
-def todo():
+def hello_world():
     if request.method == 'POST':
         title = request.form['title']
         desc = request.form['desc']
@@ -58,4 +56,4 @@ def delete(id):
     return redirect("/")
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run(debug=True, port=8000)
