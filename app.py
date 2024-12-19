@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 import os
 app = Flask(__name__)
 load_dotenv()
-mongodb_uri = os.getenv('MONGODB_URI')
+mongodb_uri = "mongodb+srv://yogii006:Yogesh%40nt1@arvind.liuwr.mongodb.net/"
 client = MongoClient(mongodb_uri)
 db =  client['inotebook']
 collection = db['Todo']
