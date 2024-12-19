@@ -2,10 +2,11 @@ from flask import Flask, render_template, request, redirect
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 from datetime import datetime
-
+from dotenv import load_dotenv
+import os
 app = Flask(__name__)
-
-client = MongoClient('mongodb+srv://yogii006:Yogesh%40nt1@arvind.liuwr.mongodb.net/')
+load_dotenv()
+mongodb_uri = os.getenv('MONGODB_URI')
 db = client['inotebook']
 collection = db['Todo']
 
