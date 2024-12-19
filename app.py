@@ -63,6 +63,7 @@ from pymongo import MongoClient
 from bson.objectid import ObjectId
 from datetime import datetime
 import bcrypt
+import os
 
 app = Flask(__name__)
 app.secret_key = os.getenv("SECRET_KEY")
