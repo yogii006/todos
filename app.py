@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 import os
 app = Flask(__name__)
 load_dotenv()
-mongodb = "'mongodb://localhost:27017/?readPreference=primary&directConnection=true&ssl=false"
+mongodb = "mongodb://localhost:27017/?readPreference=primary&directConnection=true&ssl=false"
 client = MongoClient(mongodb)
 db =  client['inotebook']
 collection = db['todo']
