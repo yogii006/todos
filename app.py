@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 client = MongoClient('mongodb://localhost:27017/?readPreference=primary&directConnection=true&ssl=false')
 db = client['inotebook']
-collection = db['todo']
+collection = db['Todo']
 
 @app.route('/', methods=['GET', 'POST'])
 def todo():
