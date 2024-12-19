@@ -7,7 +7,8 @@ import os
 app = Flask(__name__)
 load_dotenv()
 mongodb_uri = os.getenv('MONGODB_URI')
-db =  MongoClient['inotebook']
+client = MongoClient(mongodb_uri)
+db =  client['inotebook']
 collection = db['Todo']
 
 @app.route('/', methods=['GET', 'POST'])
