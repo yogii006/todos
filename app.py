@@ -10,7 +10,7 @@ db = client['inotebook']
 collection = db['todo']
 
 @app.route('/', methods=['GET', 'POST'])
-def hello_world():
+def todo():
     if request.method == 'POST':
         title = request.form['title']
         desc = request.form['desc']
@@ -56,4 +56,4 @@ def delete(id):
     return redirect("/")
 
 if __name__ == "__main__":
-    app.run(debug=True, port=8000)
+    app.run(debug=False)
